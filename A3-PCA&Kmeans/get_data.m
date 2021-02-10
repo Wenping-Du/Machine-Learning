@@ -1,0 +1,13 @@
+% # data_train
+function [data_y, data_x] = get_data(data_path)
+%   read dataset
+    data = csvread(data_path);
+    [num, dim] = size(data);
+    
+%   get X 
+    data_x = data(:, 2:dim);
+    
+%   get Y
+    data_y = data(:, 1);
+    data_y(data_y == 0) = -1;
+end
